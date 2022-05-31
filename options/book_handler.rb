@@ -76,6 +76,22 @@ class BookHandler
         @new_book = Book.new(author, publisher, cover_state, label, publish_date)
         preserve_data
     
-        puts 'Book created sucessfully'
+        puts 'Book created successfully'
     end
     
+    def list_labels
+        file_data = load_file_if_it_exist
+    
+        if file_data.nil?
+          puts '----No Labels added yet----'
+        else
+          labels = file_data.uniq { |book| [book['label']] }
+    
+          puts '-----------------------------------------'
+          labels.each_with_index do |book, index|
+            puts "(#{index}) - Label: #{book['label']}"
+          end
+          puts '-----------------------------------------'
+        end
+    end
+end
