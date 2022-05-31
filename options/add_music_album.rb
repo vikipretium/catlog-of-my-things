@@ -27,4 +27,11 @@ def music_album_data
     File.write('album.json', JSON.generate(albums))
   end
   
+  def include_genre(album)
+    puts 'Name of genre: '
+    genre_name = gets.chomp
+    genre = Genre.new(genre_name)
+    album.add_genre(genre)
+  end
+  
 
