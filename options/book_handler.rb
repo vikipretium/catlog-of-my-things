@@ -42,3 +42,18 @@ class BookHandler
           f.puts JSON.pretty_generate(@destructured_array)
         end
     end
+
+    def load_books
+        file_data = load_file_if_it_exist
+    
+        if file_data.nil?
+          puts '----No Books added yet----'
+        else
+          puts '-----------------------------------------'
+          file_data.each_with_index do |book, index|
+            puts "(#{index}) - Author: #{book['author']}, Publisher: #{book['publisher']}, Cover State: #{book['cover_state']}, Label: #{book['label']}, Publish Date: #{book['publish_date']}"
+          end
+          puts '-----------------------------------------'
+        end
+    end
+    
