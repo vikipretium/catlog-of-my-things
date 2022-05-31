@@ -16,5 +16,4 @@ class Item
   def move_to_archive
     @achieved = true if can_be_archived?
   end
-
 end
