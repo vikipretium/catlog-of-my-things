@@ -21,3 +21,8 @@ class BookHandler
        new_file.puts(JSON.pretty_generate([]))
        new_file.close
     end
+
+    def read_file_if_it_exists
+        create_file unless File.file?('books.json')
+        @file_data = File.read('books.json')
+    end
