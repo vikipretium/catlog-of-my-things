@@ -15,8 +15,7 @@ class UserInputProcessor
     case input
     when 1
       @app.list_all_books
-    when 2main.rb
-    app.rb
+    when 2
       @app.list_all_music_albums
     when 3
       @app.list_all_games
