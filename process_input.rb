@@ -1,3 +1,5 @@
+require_relative './app'
+
 class UserInputProcessor
   def initialize
     @app = App.new
@@ -13,7 +15,8 @@ class UserInputProcessor
     case input
     when 1
       @app.list_all_books
-    when 2
+    when 2main.rb
+    app.rb
       @app.list_all_music_albums
     when 3
       @app.list_all_games
