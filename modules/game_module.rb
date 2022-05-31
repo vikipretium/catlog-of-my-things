@@ -12,6 +12,7 @@ module GamesDataController
     end
     data
   end
+
   def save_games
     data = []
     @games.each do |game|

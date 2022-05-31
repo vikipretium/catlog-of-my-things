@@ -12,6 +12,7 @@ module AuthorsDataController
     end
     data
   end
+
   def save_authors
     data = []
     @authors.each do |author|
