@@ -12,4 +12,11 @@ module AuthorsDataController
     end
     data
   end
+  def save_authors
+    data = []
+    @authors.each do |author|
+      data.push({ first_name: author.first_name, last_name: author.last_name })
+    end
+    File.write('authors.json', JSON.generate(data))
+  end
 end
