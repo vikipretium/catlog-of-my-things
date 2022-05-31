@@ -22,7 +22,6 @@ class App
           '6 - List Authors', '7 - Add Book', '8 - Add Music Album', '9 - Add Game', '10 - Add Author', '11 - Exit App']
   end
 
-
   def run
     decision = gets.chomp
     puts 'please choose of the list' unless (1..7).include?(decision.to_i)
@@ -140,8 +139,6 @@ class App
 
     [first_name, last_name]
   end
-
-  private
 
   def actions(decision)
     methods = [
