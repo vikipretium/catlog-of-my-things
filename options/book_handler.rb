@@ -33,3 +33,12 @@ class BookHandler
         @destructured_array << { 'author' => @new_book.author, 'publisher' => @new_book.publisher,
                                  'cover_state' => @new_book.cover_state, 'label' => @new_book.label, 'publish_date' => @new_book.publish_date }
     end
+
+    def preserve_data
+        read_file_if_it_exists
+        append_to_array
+    
+        File.open('books.json', 'w') do |f|
+          f.puts JSON.pretty_generate(@destructured_array)
+        end
+    end
