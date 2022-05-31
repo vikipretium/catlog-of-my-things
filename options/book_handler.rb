@@ -26,3 +26,10 @@ class BookHandler
         create_file unless File.file?('books.json')
         @file_data = File.read('books.json')
     end
+
+    def append_to_array
+        @destructured_array = JSON.parse(@file_data)
+    
+        @destructured_array << { 'author' => @new_book.author, 'publisher' => @new_book.publisher,
+                                 'cover_state' => @new_book.cover_state, 'label' => @new_book.label, 'publish_date' => @new_book.publish_date }
+    end
