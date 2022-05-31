@@ -15,6 +15,20 @@ class App
     @authors = load_authors
   end
 
+  def display_menu
+    puts 'Select an option: '
+    puts
+    puts ['1 - List Books', '2 - List Music Albums', '3 - List Games', '4 - List Genres', '5 - List Labels',
+          '6 - List Authors', '7 - Add Book', '8 - Add Music Album', '9 - Add Game', '10 - Add Author', '11 - Exit App']
+  end
+
+
+  def run
+    decision = gets.chomp
+    puts 'please choose of the list' unless (1..7).include?(decision.to_i)
+    actions(decision)
+  end
+
   def add_music_album
     publish_date, on_spotify = music_album_data
     music_album = MusicAlbum.new(publish_date, on_spotify)
@@ -91,8 +105,13 @@ class App
     first_name, last_name = author_input
 
     @authors << Author.new(first_name, last_name)
-    puts 'Autho  created successfully'
+    puts 'Author  created successfully'
     puts ''
+  end
+
+  def exit_program
+    puts 'Thank you for using this app!'
+    exit
   end
 
   private
@@ -120,5 +139,17 @@ class App
     last_name = gets.chomp
 
     [first_name, last_name]
+  end
+
+  private
+
+  def actions(decision)
+    methods = [
+      method(:list_all_books), method(:list_all_music_albums), method(:list_all_games),
+      method(:list_all_genres), method(:list_all_labels), method(:list_all_authors),
+      method(:add_book), method(:add_music_album), method(:add_game), method(:add_author),
+      method(:exit_program)
+    ]
+    (1..11).include?(decision.to_i) && methods[decision.to_i - 1].call
   end
 end
