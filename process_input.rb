@@ -31,10 +31,6 @@ class UserInputProcessor
       @app.add_music_album
     when 9
       @app.add_game
-    when 10
-      exit_app
-    else
-      puts 'Wrong input! Enter a number between 1 - 10.'
     end
   end
 

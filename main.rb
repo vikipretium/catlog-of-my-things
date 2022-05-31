@@ -14,16 +14,21 @@ class MainEntryPoint
   end
 
   def open
-    user_input = nil
     puts 'Welcome to Category of My Things!'
     puts
 
-    while user_input != 10
-      display_menu
-      puts
-      user_input = gets.chomp.to_i
+    display_menu
+    puts
+    user_input = gets.chomp.to_i
+    if user_input.positive? && user_input < 11 && user_input != 10
       @processor.process_input(user_input)
+    elsif user_input == 10
+      exit
+    else
+      puts 'Wrong input! Enter a number between 1 - 10.'
+      main
     end
+
   end
 end
 
