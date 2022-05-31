@@ -56,4 +56,26 @@ class BookHandler
           puts '-----------------------------------------'
         end
     end
+
+    def create_new_book
+        print 'Author: '
+        author = gets.chomp
+    
+        print 'Publisher : '
+        publisher = gets.chomp
+    
+        print 'Cover State : '
+        cover_state = gets.chomp
+    
+        print 'Label : '
+        label = gets.chomp
+    
+        print 'Publish Date: '
+        publish_date = gets.chomp
+    
+        @new_book = Book.new(author, publisher, cover_state, label, publish_date)
+        preserve_data
+    
+        puts 'Book created sucessfully'
+    end
     
