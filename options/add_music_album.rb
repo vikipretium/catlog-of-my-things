@@ -19,4 +19,12 @@ def music_album_data
     [publish_date, spotify]
   end
 
+  def convert_to_js(album)
+    File.write('album.json', '[]') unless File.exist?('album.json')
+    albums = JSON.parse(File.read('album.json'))
+    albums << { 'id' => album.id,
+                'publish_date' => album.publish_date, 'on_spotify' => album.on_spotify, 'genre' => album.genre.name }
+    File.write('album.json', JSON.generate(albums))
+  end
   
+
