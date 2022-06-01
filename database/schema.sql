@@ -38,12 +38,8 @@ CREATE TABLE sources (
 
 CREATE TABLE musicalbum (
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    name VARCHAR(100),
-    publish_date DATE,
-    archived BOOLEAN,
-    on_spotify BOOLEAN DEFAULT 'f',
-    genre_id INT,
-    CONSTRAINT genre_fk FOREIGN KEY (genre_id) REFERENCES genre(id)
+    on_spotify BOOLEAN,
+    FOREIGN KEY(item_id) REFERENCES items(id)
 );
 
 Create INDEX genre_id_asc ON items(genre_id ASC);
