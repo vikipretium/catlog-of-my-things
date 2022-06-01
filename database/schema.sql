@@ -67,13 +67,9 @@ DROP TABLE IF EXISTS books;
 
 CREATE TABLE books (
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    author VARCHAR(100),
-    label VARCHAR(100),
     publisher VARCHAR(100),
     cover_state VARCHAR(100),
-    publish_date DATE,
-    archived BOOLEAN,
-    CONSTRAINT label_fk FOREIGN KEY (label_id) REFERENCES label(id)
+    FOREIGN KEY(item_id) REFERENCES items(id)
 );
 
 CREATE TABLE label(
