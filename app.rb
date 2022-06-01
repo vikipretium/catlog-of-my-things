@@ -19,7 +19,7 @@ class App
     puts 'Select an option: '
     puts
     puts ['1 - List Books', '2 - List Music Albums', '3 - List Games', '4 - List Genres', '5 - List Labels',
-          '6 - List Authors', '7 - Add Book', '8 - Add Music Album', '9 - Add Game', '10 - Add Author', '11 - Exit App']
+          '6 - List Authors', '7 - Add Book', '8 - Add Music Album', '9 - Add Game', '10 - Exit App']
   end
 
   def run
@@ -55,7 +55,7 @@ class App
     File.write('album.json', '[]') unless File.exist? 'album.json'
     albums = JSON.parse(File.read('album.json'))
     if albums.empty?
-      puts '----No genres added yet----'.colorize(:red)
+      puts '----No genres added yet----'
     else
       puts '-----------------------------------------'
       albums.each_with_index do |album, index|
@@ -91,6 +91,7 @@ class App
   end
 
   def add_game
+    add_author
     multiplayer, last_played_at = game_input
     publish_date = publish_date_input
 
@@ -144,9 +145,8 @@ class App
     methods = [
       method(:list_all_books), method(:list_all_music_albums), method(:list_all_games),
       method(:list_all_genres), method(:list_all_labels), method(:list_all_authors),
-      method(:add_book), method(:add_music_album), method(:add_game), method(:add_author),
-      method(:exit_program)
+      method(:add_book), method(:add_music_album), method(:add_game), method(:exit_program)
     ]
-    (1..11).include?(decision.to_i) && methods[decision.to_i - 1].call
+    (1..10).include?(decision.to_i) && methods[decision.to_i - 1].call
   end
 end
