@@ -80,7 +80,7 @@ class App
   def list_all_games
     puts 'There are no games please try to add one !' if @games.count.zero?
     @games.each do |game|
-      puts "Game list:"
+      puts 'Game list:'
       puts "#{game.multiplayer}, Last played at: #{game.last_played_at}, Publish date: #{game.publish_date}"
     end
   end
@@ -88,7 +88,7 @@ class App
   def list_all_authors
     puts 'There are no authors please try to add one through adding games !' if @authors.count.zero?
     @authors.each do |author|
-      puts "Authors List: "
+      puts 'Authors List:'
       puts "#{author.first_name} #{author.last_name}\n"
     end
   end
