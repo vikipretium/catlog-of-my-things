@@ -86,6 +86,7 @@ class App
   end
 
   def list_all_authors
+    puts 'There are no authors please try to add one through adding games !' if @authors.count.zero?
     @authors.each do |author|
       puts "Authors List: "
       puts "#{author.first_name} #{author.last_name}\n"
