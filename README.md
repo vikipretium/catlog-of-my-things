@@ -4,6 +4,10 @@
 
 > In this project, we created a console app that will help you to keep a record of different types of things you won: books, music albums, movies, and games. Everything is be based on the UML class diagram presented. The data will be stored in JSON files but we also prepared a database with tables structure analogical to the program's class structure.
 
+## Screenshot
+
+![image](catalogue.png)
+
 ## Prerequisites
 
 Ruby >= 3.0.0
